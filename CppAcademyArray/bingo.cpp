@@ -61,7 +61,9 @@ int main()
 				cout << endl;
 				cout << endl;
 			}
-			cout << "iBingoLine = " << iBingoLine[0] << endl;
+			// Test Input BingoLine
+			cout << "iBingoLine[0] = " << iBingoLine[0] << endl;
+			// Test Bingo Five
 			cout << "iBingoFive = " << iBingoFive << endl;
 			cout << "숫자를 입력하세요 Bingo~~ " << endl << endl;
 			bool bAcc = false;
