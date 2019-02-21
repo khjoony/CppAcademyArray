@@ -7,8 +7,10 @@ using namespace std;
 int main()
 {
 	srand((unsigned int)time(0));
-	int iNumber[25] = {};
-	int iTemp, idx1, idx2;
+	int iNumber[25] = {};		// create an array of 25 sizes.
+	int iTemp, idx1, idx2;		// variables for shuffle iNumber.
+	int iInput;					// Variable for enter thr number to change to star.
+	bool bAcc;					// Variable for checking duplicate inputs.
 
 	for (int i = 0; i < 25; ++i)
 	{
@@ -31,12 +33,37 @@ int main()
 		{
 			for (int j = 0; j < 5; ++j)
 			{
-				cout << iNumber[i*5 +j]<< "\t";
+				if (iNumber[i * 5 + j] == INT_MAX)
+					cout << "*\t";
+				else
+					cout << iNumber[i*5 +j]<< "\t";
 			}
 			cout << endl;
 			cout << endl;
 		}
-		break;
+		cout << "숫자를 입력하세요 (0 : 종료) :";
+		cin >> iInput;
+
+		if (iInput == 0)
+			break;
+		else if (iInput < 1 || iInput > 25)
+			continue;
+		bAcc = true;
+		for (int i = 0; i < 25; ++i)
+		{
+			if (iInput == iNumber[i])
+			{
+				bAcc = false;
+				iNumber[i] = INT_MAX;
+				break;
+			}
+		}
+		
+		if (bAcc)
+		{
+			continue;
+		}
+		//break;
 	}
 	system("pause");
 	return 0;
