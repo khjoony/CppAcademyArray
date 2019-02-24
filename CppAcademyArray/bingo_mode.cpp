@@ -41,7 +41,7 @@ int main()
 			cout << endl;
 			cout << endl;
 		}
-		cout << "숫자를 입력하세요 (0 : 종료) :";
+		cout << "Input number, please ( 0: END) :";
 		cin >> iInput;
 
 		if (iInput == 0)
