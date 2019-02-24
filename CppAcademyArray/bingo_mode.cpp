@@ -10,6 +10,7 @@ int main()
 	int iNumber[25] = {};		// create an array of 25 sizes.
 	int iTemp, idx1, idx2;		// variables for shuffle iNumber.
 	int iInput;					// Variable for enter thr number to change to star.
+	int iBingo = 0;					// Star number of bingoline
 	bool bAcc;					// Variable for checking duplicate inputs.
 
 	for (int i = 0; i < 25; ++i)
@@ -26,6 +27,7 @@ int main()
 		iNumber[idx1] = iNumber[idx2];
 		iNumber[idx2] = iTemp;
 	}
+
 	while (true)
 	{
 		system("cls");
@@ -41,6 +43,7 @@ int main()
 			cout << endl;
 			cout << endl;
 		}
+		cout << "Bingo Line : " << iBingo << endl;
 		cout << "Input number, please ( 0: END) :";
 		cin >> iInput;
 
@@ -63,6 +66,28 @@ int main()
 		{
 			continue;
 		}
+
+		iBingo = 0;
+		// Star number of bingoline width, height, cross.
+		int iStar_width = 0, iStar_height = 0;
+		for (int i = 0; i < 5; ++i)
+		{
+			iStar_width = iStar_height = 0;
+			for (int j = 0; j < 5; ++j)
+			{
+				// width
+				if (iNumber[i * 5 + j] == INT_MAX)
+					++iStar_width;
+
+				if (iNumber[j * 5 + i] == INT_MAX)
+					++iStar_height;
+			}
+			if (iStar_width == 5)
+				++iBingo;
+			if (iStar_height == 5)
+				++iBingo;
+		}
+
 		//break;
 	}
 	system("pause");
